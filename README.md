@@ -1,2 +1,4 @@
 # Aprendizaje-Estadistico
-Código y material de Apredizaje Estadístico
+Ejercicios y material de Apredizaje Estadístico
+
+
