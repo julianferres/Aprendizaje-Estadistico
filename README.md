@@ -5,6 +5,6 @@ Segundo Cuatrimestre 2018
 
 Profesor: Grymberg, Sebastian
 
-Marco de posgrado en la Facultad de Ingenieria de la Universidad de Buenos Aires
+Asignatura en el marco de posgrado en la Facultad de Ingenieria de la Universidad de Buenos Aires
 
 
