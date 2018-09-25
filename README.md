@@ -1,4 +1,6 @@
 # Aprendizaje Estadistico
+## Julian Ferres
+
 Ejercicios y material de Apredizaje Estadístico.
 
 Segundo Cuatrimestre 2018
