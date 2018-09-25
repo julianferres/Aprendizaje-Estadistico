@@ -1,4 +1,4 @@
-# Aprendizaje Estadistico
+# Aprendizaje Estadístico
 ## Julian Ferres
 
 Ejercicios y material de Apredizaje Estadístico.
