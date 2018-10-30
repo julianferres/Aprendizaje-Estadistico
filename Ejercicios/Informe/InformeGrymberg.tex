@@ -76,21 +76,61 @@
 	\end{itemize}
 	
 	
-	Quedan dudas de cuál de los siguientes era el planteo:
 	Comprobar la siguiente desigualdad:
-	f(p?x?+p?x?) p?f(x?) + p?f(x?) 
+	$$f(p_1x_1+p_1x_1) \leq p_1f(x_1) + p_2f(x_2)$$ 
 	
-	Probar que:
-	g(x0) = p1 g(x1) + p2 g(x2) 
+		\textbf{\underline{Solución:}}
 	
+	f(x) es convexa en el intervalo $[x_1, x_2]$ si y solo si para cualquier $ x_0 = p_1 x_1 + p_2 x_2$ se cumple la condición a comprobar.
+	
+	Para comprobar utilizaremos la recta l(x) que contiene a\\ $ (x_1, f(x_1)) $ y $ (x_2,f(x_2) : \forall x_0 \in [x_1, x_2] : l(x_0) \geq f(x_0)$
+	\newline
+	Pero $ l(x) = mx + b = \frac{f(x_2) - f(x_1)}{x_2 - x_1} x + \left ( f(x_1) - \frac{f(x_2) - f(x_1)}{x_2 - x_1} x_1 \right ) $
+	\newline
+	Por simplicidad llamo $ y_0 = f(x_1)$ y $ y_2 = f(x_2)$
+	\newline
+	Evaluando: $$ l(x_0) = \frac{y_2 - y_1}{x_2 - x_1} x_0 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+	$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 + p_2x_2) + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+	Usando  que  $ p_2 = 1 - p_1$
+	$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 - p_1x_2) + \frac{y_2 - y_1}{x_2 - x_1} x_2 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+	$$ = \frac{y_2 - y_1}{x_2 - x_1} (x_1 - x_2) (-p_1) + \frac{y_2 - y_1}{x_2 - x_1} (x_2 - x_1) + y_1 $$
+	$$ = p_1 y_1 - p_1 y_2 + y_2 $$
+	$$ = p_1 y_1 + (1 - p_1) y_2 $$
+	$$ = p_1 y_1 + p_2 y_2 $$
+	
+	Finalmente $f(p_1 x_1 + p_2 x_2) = f(x_0) \leq l(x_0) = p_1 f(x_1) + p_2 f(x_2)$
 	
 	\subsubsection{Ejercicio 2: Esperanza condicional}	
 	
-	Utilizando que
-	$E[m(x) f(x)] = E[Yf(x)]$ y $ m(x)=E[Y|X=x]$\\
+	Utilizando que $\forall f(X) \in \mathcal{H}: E[m(x) f(x)] = E[Yf(x)]$ y $ m(x)=E[Y|X=x]$ sii $Y-m(x) \perp \mathcal{H}$,
+	 con $\mathcal{H}$ el espacio de todas las funciones de $X$. \\
 	
 	Demostrar que vale:
-  $E[\Phi(x)Y| X] = \Phi(x)E[Y|X]$
+  $E[\phi(x)Y| X] = \phi(x)E[Y|X]$\\
+	
+	\textbf{\underline{Solución:}}
+	
+	Sea $ h(X) = \frac{f(X)}{g(X)}$, es claro que $h(X)$ puede adoptar cualquier valor de $\mathcal{H}$, por ejemplo, si busco adoptar $g(X)$ elijo $f(X)= g(X)\phi(X) \in \mathcal{H}$.\\
+	
+	Usando la definición de $h(X)$ en la ecuación de hipotesis, se llega a que  $\forall h(X) \in \mathcal{H}$:
+	$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$
+	
+	Pero entonces como $m(X)\phi(X) \in \mathcal{H}$, tiene que ser la que minimice la distancia a $Y\phi(X)$, ya que:\\
+	
+	$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$ sii
+	$$ < m(X)\phi(X),h(X)> =  <Y\phi(X),h(X)>$$ sii $\forall h(X) \in \mathcal{H}:$ 
+	$$ < m(X)\phi(X)- Y\phi(X),h(X)> = 0$$ sii
+	$$m(X)\phi(X)-Y\phi(X) \perp \mathcal{H}$$.
+	
+	Por lo tanto $m(X)\phi(X)$ es la esperanza condicional de $Y\phi(X)$ en $\mathcal{H}$
+	
+	Finalmente por definición:
+	
+	$$ m(X) \phi(X) = E \left[Y\phi(X)| X \right]$$
+	
+	y con $m(X) = E\left[Y|X\right]$ se obtiene la igualdad a demostrar:
+	
+	$$ E\left[Y|X\right] \phi(X) = E \left[Y\phi(X)| X \right]$$
 	
 	
 	\subsubsection{Ejercicio 3 (STOP) (SIMULACIÓN)}
@@ -251,7 +291,11 @@
 	
 	$$ (a+b+c)^2 \leq 3(a^2+b^2+c^2)$$
 	
-	Sugerencia: usar Cauchy-Schwarz / Jensen.
+	Sugerencia: usar Cauchy-Schwarz / Jensen.\\
+	
+	\textbf{\underline{Solución(CS):}}\\
+		
+	Por CS se ve de forma directa que: $$3(a^2+b^2+c^2) = (1^2+1^2+1^2)(a^2+b^2+c^2) \geq (1^2a^2+1^2b^2+1^2c^2)^2= (a+b+c)^2$$
 	
 	
 	\subsection{Clase 5}
@@ -270,10 +314,18 @@
 	$$P(|S_n - E\left[S_n\right]| \leq -\epsilon ) \leq 2 e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
 	
 	Sugerencia: Usar que $P(A \cup B) \leq P(A)+P(B)$
+	\\
 	
+	\textbf{\underline{Solución:}}\\
 	
-	\subsubsection{Ejercicio 12}
-	En clase se demostró la primer desigualdad de la hipotesis del ejercicio anterior.\\ Se pide como ejercicio demostrar la segunda desigualdad de la hipotesis.
+	Por la definición de valor absoluto y la propiedad $P(A \cup B) \leq P(A)+P(B)$ se puede ver directamente el resultado pedido:
+	$$P(|S_n - E\left[S_n\right]| \leq -\epsilon ) = P((S_n - E\left[S_n\right] \geq \epsilon) \cup (S_n - E\left[S_n\right] \leq -\epsilon) )$$
+	
+	$$\leq P(S_n - E\left[S_n\right] \geq \epsilon ) + P(S_n - E\left[S_n\right] \leq -\epsilon )$$
+	
+	$$ = e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2} + e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
+	
+	$$= 2 e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
 	
 	\subsubsection{Ejercicio 13}
 	
@@ -289,6 +341,14 @@
 		
 		
 	\end{itemize}
+	
+	\textbf{\underline{Solución:}}\\
+	
+	$\Phi(0) = \ln{(1)} = 0$
+	
+	$\Phi'(u)=\frac{(p e^u)}{(p e^u - p + 1)} - p$, $\Phi'(0)=\frac{(p e^0)}{(p e^0 - p + 1)} - p = p-p = 0$
+	
+	
 	
 	\subsubsection{Ejercicio 14 (STOP)}
 	
@@ -313,7 +373,18 @@
 	
 	$$ \sum_{n=0}^{\infty} n e^{-\lambda n} < \infty$$
 	
-	(Sugerencia: Usar que $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda^2}$)
+	(Sugerencia: Usar que $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda^2}$)\\
+		
+	\textbf{\underline{Solución:}}
+	
+	Teorema: Si $f$ es positiva, continua y decreciente para $x\ge1$ y $a_n=f(n)$, entonces 
+	
+	\begin{displaymath}\sum_{n=0}^\infty a_n \quad {\rm y} \quad \int_0^\infty f(x)\,{\rm d}x \end{displaymath}
+	
+	convergen o divergen ambas simultáneamente.\\	
+	Si $T \sim \exp(\lambda)$ y $a_n = ne^{-\lambda n}$,\\
+	es inmediato que como $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda}E\left[T \right]= \frac{1}{\lambda^2}< \infty$\\ entonces la serie asociada es convergente.
+	
 	
 
 	\subsubsection{Ejercicio 16}
@@ -330,10 +401,16 @@
 		\item $N_{A'} (z_1,z_2,\cdots, z_n)$
 	\end{enumerate}
 	
-	
-	\section{Conclusiones}
+	\textbf{\underline{Solución:}}\\
 
-	\begin{thebibliography}{99}
-		\bibitem{}
-	\end{thebibliography}
+	El problema equivale a contar la cantidad de subconjuntos con elementos consecutivos hay en un conjunto $\{z_1,z_2,...,z_n\}$ con $z_1< z_2<...< z_n$.
+	
+	Los subconjuntos con mas de un elemento quedan completamente definidos simplemente eligiendo sus elementos extremos,
+	
+	Luego hay $nC2 = \frac{n(n-1)}{2}$ de estos, sumados a los $n$ conjuntos de un elemento y al conjunto vacío, se tiene que:
+	
+	$$N_{A'} (z_1,z_2,\cdots, z_n) = \frac{n(n-1)}{2} +n +1 $$
+	
+	En caso $n=3$ es inmediato habiendo deducido este.
+	
 \end{document}
