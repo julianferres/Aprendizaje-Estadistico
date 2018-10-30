@@ -8,6 +8,9 @@
 \usepackage{bookmark}
 \usepackage{fancyhdr}
 \usepackage{bbm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
 
 \pagestyle{fancy} % Encabezado y pie de página
 \fancyhf{}
@@ -43,8 +46,10 @@
 	\newpage
 	\section{Introducción}
 	
+	En este informe se busca recopilar los diferentes ejercicios propuestos en la asignatura \textit{Aprendizaje Estadístico} en el $2^{do}$ cuatrimestre de 2018 por el profesor Sebastian Grymberg, junto con las soluciones propuestas por los integrantes del grupo.
+	
 
-	\section{Lista de enunciados y sus soluciones}
+	\section{Lista de enunciados}
 	
 	
 	
@@ -79,26 +84,7 @@
 	Comprobar la siguiente desigualdad:
 	$$f(p_1x_1+p_1x_1) \leq p_1f(x_1) + p_2f(x_2)$$ 
 	
-		\textbf{\underline{Solución:}}
-	
-	f(x) es convexa en el intervalo $[x_1, x_2]$ si y solo si para cualquier $ x_0 = p_1 x_1 + p_2 x_2$ se cumple la condición a comprobar.
-	
-	Para comprobar utilizaremos la recta l(x) que contiene a\\ $ (x_1, f(x_1)) $ y $ (x_2,f(x_2) : \forall x_0 \in [x_1, x_2] : l(x_0) \geq f(x_0)$
-	\newline
-	Pero $ l(x) = mx + b = \frac{f(x_2) - f(x_1)}{x_2 - x_1} x + \left ( f(x_1) - \frac{f(x_2) - f(x_1)}{x_2 - x_1} x_1 \right ) $
-	\newline
-	Por simplicidad llamo $ y_0 = f(x_1)$ y $ y_2 = f(x_2)$
-	\newline
-	Evaluando: $$ l(x_0) = \frac{y_2 - y_1}{x_2 - x_1} x_0 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
-	$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 + p_2x_2) + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
-	Usando  que  $ p_2 = 1 - p_1$
-	$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 - p_1x_2) + \frac{y_2 - y_1}{x_2 - x_1} x_2 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
-	$$ = \frac{y_2 - y_1}{x_2 - x_1} (x_1 - x_2) (-p_1) + \frac{y_2 - y_1}{x_2 - x_1} (x_2 - x_1) + y_1 $$
-	$$ = p_1 y_1 - p_1 y_2 + y_2 $$
-	$$ = p_1 y_1 + (1 - p_1) y_2 $$
-	$$ = p_1 y_1 + p_2 y_2 $$
-	
-	Finalmente $f(p_1 x_1 + p_2 x_2) = f(x_0) \leq l(x_0) = p_1 f(x_1) + p_2 f(x_2)$
+
 	
 	\subsubsection{Ejercicio 2: Esperanza condicional}	
 	
@@ -108,30 +94,7 @@
 	Demostrar que vale:
   $E[\phi(x)Y| X] = \phi(x)E[Y|X]$\\
 	
-	\textbf{\underline{Solución:}}
-	
-	Sea $ h(X) = \frac{f(X)}{g(X)}$, es claro que $h(X)$ puede adoptar cualquier valor de $\mathcal{H}$, por ejemplo, si busco adoptar $g(X)$ elijo $f(X)= g(X)\phi(X) \in \mathcal{H}$.\\
-	
-	Usando la definición de $h(X)$ en la ecuación de hipotesis, se llega a que  $\forall h(X) \in \mathcal{H}$:
-	$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$
-	
-	Pero entonces como $m(X)\phi(X) \in \mathcal{H}$, tiene que ser la que minimice la distancia a $Y\phi(X)$, ya que:\\
-	
-	$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$ sii
-	$$ < m(X)\phi(X),h(X)> =  <Y\phi(X),h(X)>$$ sii $\forall h(X) \in \mathcal{H}:$ 
-	$$ < m(X)\phi(X)- Y\phi(X),h(X)> = 0$$ sii
-	$$m(X)\phi(X)-Y\phi(X) \perp \mathcal{H}$$.
-	
-	Por lo tanto $m(X)\phi(X)$ es la esperanza condicional de $Y\phi(X)$ en $\mathcal{H}$
-	
-	Finalmente por definición:
-	
-	$$ m(X) \phi(X) = E \left[Y\phi(X)| X \right]$$
-	
-	y con $m(X) = E\left[Y|X\right]$ se obtiene la igualdad a demostrar:
-	
-	$$ E\left[Y|X\right] \phi(X) = E \left[Y\phi(X)| X \right]$$
-	
+
 	
 	\subsubsection{Ejercicio 3 (STOP) (SIMULACIÓN)}
 	
@@ -176,14 +139,7 @@
 	
 	$$ P(X,Y) = \int_{0}^{\frac{1}{2}} (1-x) dx + \int_{\frac{1}{2}}^{\frac{3}{4}} x dx $$
 	
-    \textbf{\underline{Solución:}}
-    
-    $$ P(X,Y) = \int_{0}^{\frac{1}{2}} (1-x) dx + \int_{\frac{1}{2}}^{\frac{3}{4}} x dx $$
-	$$ = \int_{0}^{\frac{1}{2}} 1 dx - \int_{0}^{\frac{1}{2}} x dx + \int_{\frac{1}{2}}^{\frac{3}{4}} x dx $$
-	$$ = {\frac{1}{2}} - {\frac{1}{8}} + ({\frac{9}{32}} - {\frac{1}{8}}) $$
-	$$ = 17/32 $$
-	
-	
+ 	
 	\subsubsection{Ejercicio 6}
 	
 	Sean $T, F$ y $E$ exponenciales de intensidad $1$ y tenemos que 
@@ -198,33 +154,20 @@
 	
 	$$L^* = P ( g*(T,F) \neq Y)$$
 	
-\textbf{\underline{Solución:}}
-	
-	$$L^* = P ( g*(T,F) \neq Y) $$
-	$$ = P(T + B < 7 - log2 , T + B + E \geq 7) + P(T + B \geq 7 - log2, T + B + E < 7)$$
-	$$ = E(e^{-(7-T-B)} \mathbbm{1}\{T + B < 7 - log2\}) + P((1-e^{-(7-T-B)}) \mathbbm{1}\{7 > T + B \geq 7 - log2 \}) $$
-	$$ = \int_{0}^{7 - log2} x e^{-x} e^{-(7-x)} dx  + \int_{7-log2}^{7} x e^{-x} (1-e^{-(7-x)}) dx $$
-	(porque la densidad de T + B es $ue^{u}$ en $[0,\infty)$)
-	$$ = e^{-7} \left({\frac{(7-log2)^2}{2}} + 2(8-log2)-8-{\frac{7^2}{2}} + {\frac{(7-log2)^2}{2}} \right) $$
-	(ya que $ \int_{x}^{\infty} u e^{-u} du = (1+x)e^{-x}$ )
-	$$ = 0.0199611... $$
-	
+
 	
 	\subsection{Clase 3}
 	
 	\subsubsection{Ejercicio 7}
 	Se quería acotar:\\
 	
-	$E \left[ | \eta^{*} (x) - \eta(x)| \right]  < \epsilon  $	\\
+	$E \left[ | \tilde{\eta} (x) - \eta(x)| \right]  < \epsilon  $	\\
 	
-	Para $\epsilon>0$ existe una función $\eta_{\epsilon}$ uniformemente continua a valores en el intervalo $\left[ 0, 1 \right]$ sobre un conjunto compacto $C$ que se anula fuera de $C$, y que tiene la siguiente propiedad:\\
-	$E[ |\eta_\epsilon(x) - \eta(x)| ] < \epsilon $ \\
-	
-	Por la desigualdad triangular:\\
-	
-	$E\left[ |\eta^*(x) - \eta(x)| \right] \leq E[ |\eta ^*(x) - \eta_\epsilon ^*(x)| ] + E[ |\eta^*_\epsilon(x) - \eta_\epsilon(x)| ] + E[ |\eta_\epsilon(x) - \eta(x)| ]$\\
+	Para $\epsilon>0$ existe una función $\eta_{\epsilon}$ uniformemente continua a valores en el intervalo $\left[ 0, 1 \right]$ sobre un conjunto compacto $C$ que se anula fuera de $C$, y que tiene la siguiente propiedad:	$E[ |\eta_\epsilon(x) - \eta(x)| ] < \epsilon $ \\
+	Por la desigualdad triangular:	$$E\left[ |\tilde{\eta}(x) - \eta(x)| \right] \leq E[ \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] + E[ |\tilde{\eta}_\epsilon(x) - \eta_\epsilon(x)| ] + E[ |\eta_\epsilon(x) - \eta(x)| ]$$
 		
-	En clase se acotaron tanto el tercer término como el segundo del segundo miembro de la desigualdad, y el ejercicio es entender  por qué el primer término está acotado por el tercero.
+	En clase se acotaron tanto el segundo como el tercer miembro la desigualdad, y el ejercicio es entender  por qué el primer término está acotado por el tercero, es decir:	
+	$$ E[ \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] \leq E[ |\eta_\epsilon(x) - \eta(x)| ]$$
 	
 	\subsubsection{Ejercicio 8 (STOP)(SIMULACIÓN)}
 	
@@ -291,13 +234,8 @@
 	
 	$$ (a+b+c)^2 \leq 3(a^2+b^2+c^2)$$
 	
-	Sugerencia: usar Cauchy-Schwarz / Jensen.\\
-	
-	\textbf{\underline{Solución(CS):}}\\
-		
-	Por CS se ve de forma directa que: $$3(a^2+b^2+c^2) = (1^2+1^2+1^2)(a^2+b^2+c^2) \geq (1^2a^2+1^2b^2+1^2c^2)^2= (a+b+c)^2$$
-	
-	
+\textit{	Sugerencia: usar Cauchy-Schwarz / Jensen.
+	}
 	\subsection{Clase 5}
 	
 	\subsubsection{Ejercicio 11}
@@ -313,19 +251,15 @@
 	
 	$$P(|S_n - E\left[S_n\right]| \leq -\epsilon ) \leq 2 e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
 	
-	Sugerencia: Usar que $P(A \cup B) \leq P(A)+P(B)$
+\textit{	Sugerencia: Usar que $P(A \cup B) \leq P(A)+P(B)$}
 	\\
 	
-	\textbf{\underline{Solución:}}\\
 	
-	Por la definición de valor absoluto y la propiedad $P(A \cup B) \leq P(A)+P(B)$ se puede ver directamente el resultado pedido:
-	$$P(|S_n - E\left[S_n\right]| \leq -\epsilon ) = P((S_n - E\left[S_n\right] \geq \epsilon) \cup (S_n - E\left[S_n\right] \leq -\epsilon) )$$
+	\subsubsection{Ejercicio 12}
 	
-	$$\leq P(S_n - E\left[S_n\right] \geq \epsilon ) + P(S_n - E\left[S_n\right] \leq -\epsilon )$$
-	
-	$$ = e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2} + e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
-	
-	$$= 2 e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
+		En el ejercicio 11, y a partir de la demostración en clase de la primera de las hipotesis, realizar la demostración de la segunda hipotesis:
+		
+			$$P(S_n - E\left[S_n\right] \leq -\epsilon ) \leq e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
 	
 	\subsubsection{Ejercicio 13}
 	
@@ -341,13 +275,6 @@
 		
 		
 	\end{itemize}
-	
-	\textbf{\underline{Solución:}}\\
-	
-	$\Phi(0) = \ln{(1)} = 0$
-	
-	$\Phi'(u)=\frac{(p e^u)}{(p e^u - p + 1)} - p$, $\Phi'(0)=\frac{(p e^0)}{(p e^0 - p + 1)} - p = p-p = 0$
-	
 	
 	
 	\subsubsection{Ejercicio 14 (STOP)}
@@ -373,18 +300,8 @@
 	
 	$$ \sum_{n=0}^{\infty} n e^{-\lambda n} < \infty$$
 	
-	(Sugerencia: Usar que $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda^2}$)\\
+	(\textit{Sugerencia: Usar que $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda^2}$})\\
 		
-	\textbf{\underline{Solución:}}
-	
-	Teorema: Si $f$ es positiva, continua y decreciente para $x\ge1$ y $a_n=f(n)$, entonces 
-	
-	\begin{displaymath}\sum_{n=0}^\infty a_n \quad {\rm y} \quad \int_0^\infty f(x)\,{\rm d}x \end{displaymath}
-	
-	convergen o divergen ambas simultáneamente.\\	
-	Si $T \sim \exp(\lambda)$ y $a_n = ne^{-\lambda n}$,\\
-	es inmediato que como $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda}E\left[T \right]= \frac{1}{\lambda^2}< \infty$\\ entonces la serie asociada es convergente.
-	
 	
 
 	\subsubsection{Ejercicio 16}
@@ -401,16 +318,295 @@
 		\item $N_{A'} (z_1,z_2,\cdots, z_n)$
 	\end{enumerate}
 	
-	\textbf{\underline{Solución:}}\\
-
-	El problema equivale a contar la cantidad de subconjuntos con elementos consecutivos hay en un conjunto $\{z_1,z_2,...,z_n\}$ con $z_1< z_2<...< z_n$.
+	\newpage
+	\section{Soluciones}
 	
-	Los subconjuntos con mas de un elemento quedan completamente definidos simplemente eligiendo sus elementos extremos,
 	
-	Luego hay $nC2 = \frac{n(n-1)}{2}$ de estos, sumados a los $n$ conjuntos de un elemento y al conjunto vacío, se tiene que:
+		\subsection{Clase 1}
+		
+		\subsubsection{Ejercicio 1}
 	
-	$$N_{A'} (z_1,z_2,\cdots, z_n) = \frac{n(n-1)}{2} +n +1 $$
+		
+		\textbf{\underline{Solución:}}
+		
+		f(x) es convexa en el intervalo $[x_1, x_2]$ si y solo si para cualquier $ x_0 = p_1 x_1 + p_2 x_2$ se cumple la condición a comprobar.
+		
+		Para comprobar utilizaremos la recta l(x) que contiene a\\ $ (x_1, f(x_1)) $ y $ (x_2,f(x_2) : \forall x_0 \in [x_1, x_2] : l(x_0) \geq f(x_0)$
+		\newline
+		Pero $ l(x) = mx + b = \frac{f(x_2) - f(x_1)}{x_2 - x_1} x + \left ( f(x_1) - \frac{f(x_2) - f(x_1)}{x_2 - x_1} x_1 \right ) $
+		\newline
+		Por simplicidad llamo $ y_0 = f(x_1)$ y $ y_2 = f(x_2)$
+		\newline
+		Evaluando: $$ l(x_0) = \frac{y_2 - y_1}{x_2 - x_1} x_0 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+		$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 + p_2x_2) + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+		Usando  que  $ p_2 = 1 - p_1$
+		$$ = \frac{y_2 - y_1}{x_2 - x_1} (p_1x_1 - p_1x_2) + \frac{y_2 - y_1}{x_2 - x_1} x_2 + \left ( y_1 - \frac{y_2 - y_1}{x_2 - x_1} x_1 \right ) $$
+		$$ = \frac{y_2 - y_1}{x_2 - x_1} (x_1 - x_2) (-p_1) + \frac{y_2 - y_1}{x_2 - x_1} (x_2 - x_1) + y_1 $$
+		$$ = p_1 y_1 - p_1 y_2 + y_2 $$
+		$$ = p_1 y_1 + (1 - p_1) y_2 $$
+		$$ = p_1 y_1 + p_2 y_2 $$
+		
+		Finalmente $f(p_1 x_1 + p_2 x_2) = f(x_0) \leq l(x_0) = p_1 f(x_1) + p_2 f(x_2)$
+		
+		\subsubsection{Ejercicio 2: Esperanza condicional}	
+		
+		\textbf{\underline{Solución:}}
+		
+		Sea $ h(X) = \frac{f(X)}{g(X)}$, es claro que $h(X)$ puede adoptar cualquier valor de $\mathcal{H}$, por ejemplo, si busco adoptar $g(X)$ elijo $f(X)= g(X)\phi(X) \in \mathcal{H}$.\\
+		
+		Usando la definición de $h(X)$ en la ecuación de hipotesis, se llega a que  $\forall h(X) \in \mathcal{H}$:
+		$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$
+		
+		Pero entonces como $m(X)\phi(X) \in \mathcal{H}$, tiene que ser la que minimice la distancia a $Y\phi(X)$, ya que:\\
+		
+		$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$ sii
+		$$ \langle m(X)\phi(X),h(X) \rangle =  \langle Y\phi(X),h(X) \rangle$$ sii $\forall h(X) \in \mathcal{H}:$ 
+		$$ \langle m(X)\phi(X)- Y\phi(X),h(X) \rangle = 0$$ sii
+		$$m(X)\phi(X)-Y\phi(X) \perp \mathcal{H}$$.
+		
+		Por lo tanto $m(X)\phi(X)$ es la esperanza condicional de $Y\phi(X)$ en $\mathcal{H}$
+		
+		Finalmente por definición:
+		
+		$$ m(X) \phi(X) = E \left[Y\phi(X)| X \right]$$
+		
+		y con $m(X) = E\left[Y|X\right]$ se obtiene la igualdad a demostrar:
+		
+		$$ E\left[Y|X\right] \phi(X) = E \left[Y\phi(X)| X \right]$$
+		
+		
+		\subsubsection{Ejercicio 3 (STOP) (SIMULACIÓN)}
+		
+		Mirar anexo		
+		\subsubsection{Ejercicio 4 (no entregable)}
+		
+		\subsection{Clase 2}
+		
+		\subsubsection{Ejercicio 5}
+		
+		\textbf{\underline{Solución:}}
+		
+		$$ P(X,Y) = \int_{0}^{\frac{1}{2}} (1-x) dx + \int_{\frac{1}{2}}^{\frac{3}{4}} x dx $$
+		
+		$$ = \int_{0}^{\frac{1}{2}} 1 dx - \int_{0}^{\frac{1}{2}} x dx + \int_{\frac{1}{2}}^{\frac{3}{4}} x dx $$
+		
+		$$ = {\frac{1}{2}} - {\frac{1}{8}} + ({\frac{9}{32}} - {\frac{1}{8}}) $$
+		
+		$$ = 17/32 $$
+		
+		
+		\subsubsection{Ejercicio 6}
+		
+		\textbf{\underline{Solución:}}
+		
+		$$L^* = P ( g*(T,F) \neq Y) $$
+		$$ = P(T + B < 7 - log2 , T + B + E \geq 7) + P(T + B \geq 7 - log2, T + B + E < 7)$$
+		$$ = E(e^{-(7-T-B)} \mathbbm{1}\{T + B < 7 - log2\}) + P((1-e^{-(7-T-B)}) \mathbbm{1}\{7 > T + B \geq 7 - log2 \}) $$
+		
+		$$ = \int_{0}^{7 - log2} x e^{-x} e^{-(7-x)} dx  + \int_{7-log2}^{7} x e^{-x} (1-e^{-(7-x)}) dx $$
+		(porque la densidad de T + B es $ue^{u}$ en $[0,\infty)$)
+		$$ = e^{-7} \left({\frac{(7-log2)^2}{2}} + 2(8-log2)-8-{\frac{7^2}{2}} + {\frac{(7-log2)^2}{2}} \right) $$
+		(\textit{ya que $ \int_{x}^{\infty} u e^{-u} du = (1+x)e^{-x}$} )
+		$$ = 0.0199611... $$
+		
+		
+		\subsection{Clase 3}
+		
+		\subsubsection{Ejercicio 7}
+			
+			\textbf{\underline{Solución:}}\\
+		
+			Se pide mostrar que: 
+			$$ E[ \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] \leq E[ |\eta_\epsilon(x) - \eta(x)| ]$$ donde:
+			
+		  \begin{itemize}
+		  	\item $\tilde{f}(x) = E\left[ f(x) | X \in A(x) \right]$ para toda funcion $f$.
+		  \end{itemize}
+		  
+		\textit{\textbf{Lema previo}(desigualdad de Jensen para Esperanzas condicionales)}:\\
+		
+		 Sean $W,Z$ variables aleatorias y $f: \mathbb{R} \to \mathbb{R}$ una función convexa:\\ $ f(E\left[W|Z\right]) \leq E\left[f(W)|Z\right]$.\\
+		
+		En nuestro ejericio, sean $Z=  X \in A(x) $ , $W= \eta_\epsilon(x) - \eta(x)$ y 
+		
+		$
+		f(x) = |x| := \left\{
+		\begin{array}{ll}
+		x & \mathrm{si\ } x \geq 0 \\
+		-x & \mathrm{si\ } x < 0
+		\end{array}
+		\right.
+		$ , claramente convexa en $\mathbbm{R}$\\
+		Luego:\\
+		
 	
-	En caso $n=3$ es inmediato habiendo deducido este.
+		$\tilde{\eta}(x) - \tilde{\eta}_\epsilon(x) = E\left[ \eta(x) | X \in A(x) \right] - E\left[ \eta_\epsilon (x) | X \in A(x) \right] = E\left[ \eta(x) - \eta_\epsilon (x) | X \in A(x) \right]$\\
+		
+		$|\tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| = f(E\left[W|Z\right])$ y ademas como $W$ y $Z$ son independientes, tambien lo son $f(W)$ y $Z$, luego: $E\left[f(W)|Z\right] = E\left[f(W)\right] =  E[ |\eta_\epsilon(x) - \eta(x)| ] $
+		
+		
+		
+		Y el ejercicio se reduce a la demostración del \textit{\textbf{Lema previo}}.
+		
+							
+		\subsubsection{Ejercicio 8 (STOP)(SIMULACIÓN)}
+	Mirar anexo
+	
+		\subsection{Clase 4}
+		
+		\subsubsection{Ejercicio 9: KNN}
+		
+		
+	Mirar anexo
+		
+		
+		
+		
+		\subsubsection{Ejercicio 9 bis}
+			
+			\textbf{\underline{Normal Multivariada:}}\\
+			
+			\underline{Caso general:}\\
+			
+			Un vector aleatorio $X=[X_{1},\dots ,X_{n}]^{T}$ sigue una distribución normal multivariante si satisface las siguientes condiciones equivalentes:
+			
+			\begin{itemize}
+				\item  Toda combinación lineal $ Y=a_{1}X_{1}+\cdots +a_{n}X_{n}$
+				está normalmente distribuida.
+				
+				\item Hay un vector aleatorio $ Z=[Z_{1},\dots ,Z_{m}]^{T}$  cuyas componentes son variables aleatorias independientes distribuidas según la normal estándar, un vector $ \mu =[\mu _{1},\dots ,\mu _{n}]^{T}$ y una matriz $n \times m$ $A$ tal que $X = AZ + \mu$
+				
+				\item Hay un vector $\mu$ y una matriz semidefinida positiva simétrica $\Sigma$ tal que la función característica de X es:		
+				$$\phi_X(u; \mu, \Sigma) = \exp( i \mu ^T u - \frac{1}{2}u^T \Sigma u)$$
+							
+			\end{itemize}
+			
+			Si $\Sigma$ es una matriz no singular, entonces la distribución puede describirse por la siguiente función de densidad:
+			
+			$$f_{X}(x_{1},\dots ,x_{n})={\frac {1}{(2\pi )^{n/2}|\Sigma |^{1/2}}}\exp \left(-{\frac {1}{2}}({\mathbf {x}}-{\mathbf {\mu }})^{\top }\Sigma ^{-1}({\mathbf {x}}-{\mathbf {\mu }})\right)$$
+			
+			donde $|\Sigma|$ es el determinante de $\Sigma$. Nótese como la ecuación de arriba se reduce a la distribución normal si $\Sigma$ es un escalar (es decir, una matriz 1x1).
+			
+			El vector $\mu$ en estas circunstancias es la esperanza de $X$ y la matriz $\Sigma =AA^{T}$ es la matriz de covarianza de las componentes $X_i$.\\
+			
+			
+			\underline{Caso bivariante:}
+			
+			En el caso particular de dos dimensiones, la función de densidad (con media $(0, 0)$ es:			
+			$$f(x,y)={\frac {1}{2\pi \sigma _{x}\sigma _{y}{\sqrt {1-\rho ^{2}}}}}\exp \left(-{\frac {1}{2(1-\rho ^{2})}}\left({\frac {x^{2}}{\sigma _{x}^{2}}}+{\frac {y^{2}}{\sigma _{y}^{2}}}-{\frac {2\rho xy}{(\sigma _{x}\sigma _{y})}}\right)\right)$$
+			
+			donde $\rho$  es el coeficiente de correlación entre $X$ e $Y$. En este caso,
+			
+			$$\Sigma ={\begin{bmatrix}\sigma _{x}^{2}&\rho \sigma _{x}\sigma _{y}\\\rho \sigma _{x}\sigma _{y}&\sigma _{y}^{2}\end{bmatrix}}$$.
+			
+				\underline{Interpretación geométrica:}
+				
+				Las curvas de equidensidad de una distribución normal multivariante son elipsoides (es decir, transformaciones lineales de hiperesferas) centrados en la media. Las direcciones de los ejes principales de los elipsoides vienen dados por los autovectores de la matriz de covarianza $\Sigma$. Las longitudes relativas de los cuadrados de los ejes principales vienen dados por los correspondientes autovectores.
+				
+			
+		\subsubsection{Ejercicio 10}
+		
+		\textbf{\underline{Solución(CS):}}\\
+		
+		Por CS se ve de forma directa que: $$3(a^2+b^2+c^2) = (1^2+1^2+1^2)(a^2+b^2+c^2) \geq (1^2a^2+1^2b^2+1^2c^2)^2= (a+b+c)^2$$
+		
+	
+		
+		
+		\subsection{Clase 5}
+		
+		\subsubsection{Ejercicio 11}
+	
+		\textbf{\underline{Solución:}}\\
+		
+		Por la definición de valor absoluto y la propiedad $P(A \cup B) \leq P(A)+P(B)$ se puede ver directamente el resultado pedido:
+		$$P(|S_n - E\left[S_n\right]| \leq -\epsilon ) = P((S_n - E\left[S_n\right] \geq \epsilon) \cup (S_n - E\left[S_n\right] \leq -\epsilon) )$$
+		
+		$$\leq P(S_n - E\left[S_n\right] \geq \epsilon ) + P(S_n - E\left[S_n\right] \leq -\epsilon )$$
+		
+		$$ = e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2} + e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
+		
+		$$= 2 e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
+		
+			
+		\subsubsection{Ejercicio 12}
+		
+		
+		\textbf{\underline{Solución:}}\\
+		
+		Sabemos que, si $X_1,X_2, \cdots, X_n$ son variables aleatorias acotadas e independientes tales que: $P(a_i \leq X_i \leq b_i)=1$, con $i = 1,2, \cdots n$, se cumple:	$$P(S_n - E\left[S_n\right] \geq \epsilon ) \leq e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2} \ \ \ (hip)$$
+		
+			
+		Sea $X_i^* = -X_i$ para todo $i= 1,\cdots, n$ , luego $P(-b_i \leq X_i^* \leq -a_i) = 1$
+		
+		Además defino $S^*_n= \sum_{i=1}^n X^*_i$
+		
+		Como las variables $X_1^*,X_2^* , \cdots , X_n^*$ cumplen con las condiciones de la hipotesis:
+		
+		$$P(S_n^* - E\left[S_n^*\right] \geq \epsilon ) \overset{(hip)}{\le} e^{-2\epsilon^2/ \sum_{i=1}^{n} ((-a_i)-(-b_i))^2}$$
+		
+		Pero:
+		
+		\begin{itemize}
+			\item $S_n^* = \sum_{i=1}^n X^*_i =  \sum_{i=1}^n (-X_i) = -S_n$
+			
+			\item $E\left[ S_n^* \right] = E \left[ \sum_{i=1}^n X^*_i  \right] = E \left[ \sum_{i=1}^n (-X_i) \right] = - E \left[ - S_n \right]= - E \left[ S_n \right]$
+			
+			\item $((-a_i)-(-b_i))^2 = (b_i - a_i )^2$
+						
+		\end{itemize}
+		
+		Luego:	
+			$$P(S_n - E\left[S_n\right] \leq -\epsilon ) = P(S_n^* - E\left[S_n^*\right] \geq \epsilon ) \leq e^{-2\epsilon^2/ \sum_{i=1}^{n} ((-a_i)-(-b_i))^2}  = e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}$$
+			$$\boxed{P(S_n - E\left[S_n\right] \leq -\epsilon ) \leq e^{-2\epsilon^2/ \sum_{i=1}^{n} (b_i-a_i)^2}}$$
+			
+			
+		\subsubsection{Ejercicio 13}
+			
+		\textbf{\underline{Solución:}}\\
+		
+		$\Phi(0) = \ln{(1)} = 0$
+		
+		$\Phi'(u)=\frac{(p e^u)}{(p e^u - p + 1)} - p$, $\Phi'(0)=\frac{(p e^0)}{(p e^0 - p + 1)} - p = p-p = 0$
+		
+		
+		
+		\subsubsection{Ejercicio 14 (STOP)}
+		
+	Mirar anexo
+		
+		\subsection{Clase 6}
+		
+		\subsubsection{Ejercicio 15}
+	
+		\textbf{\underline{Solución:}}
+		
+		Teorema: Si $f$ es positiva, continua y decreciente para $x\ge1$ y $a_n=f(n)$, entonces 
+		
+		\begin{displaymath}\sum_{n=0}^\infty a_n \quad {\rm y} \quad \int_0^\infty f(x)\,{\rm d}x \end{displaymath}
+		
+		convergen o divergen ambas simultáneamente.\\	
+		Si $T \sim \exp(\lambda)$ y $a_n = ne^{-\lambda n}$,\\
+		es inmediato que como $\int_{0}^{\infty} xe^{-\lambda x}dx = \frac{1}{\lambda}E\left[T \right]= \frac{1}{\lambda^2}< \infty$\\ entonces la serie asociada es convergente.
+		
+		
+		
+		\subsubsection{Ejercicio 16}
+		
+		\textbf{\underline{Solución:}}\\
+		
+		El problema equivale a contar la cantidad de subconjuntos con elementos consecutivos hay en un conjunto $\{z_1,z_2,...,z_n\}$ con $z_1< z_2<...< z_n$.
+		
+		Los subconjuntos con mas de un elemento quedan completamente definidos simplemente eligiendo sus elementos extremos,
+		
+		Luego hay $nC2 = \frac{n(n-1)}{2}$ de estos, sumados a los $n$ conjuntos de un elemento y al conjunto vacío, se tiene que:
+		
+		$$N_{A'} (z_1,z_2,\cdots, z_n) = \frac{n(n-1)}{2} +n +1 $$
+		
+		En caso $n=3$ es inmediato habiendo deducido este, por lo tanto 
+		
+		$$N_{A'} (z_1,z_2,z_3) = \frac{3(3-1)}{2} +3 +1  = 7.$$
+		
+		
 	
 \end{document}
