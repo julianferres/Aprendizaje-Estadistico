@@ -46,9 +46,16 @@
 	\newpage
 	\section{Introducción}
 	
-	En este informe se busca recopilar los diferentes ejercicios propuestos en la asignatura \textit{Aprendizaje Estadístico} en el $2^{do}$ cuatrimestre de 2018 por el profesor Sebastian Grymberg, junto con las soluciones propuestas por los integrantes del grupo.
+	En este informe se busca recopilar los diferentes ejercicios propuestos en la asignatura \textit{Aprendizaje Estadístico} en el $2^{do}$ cuatrimestre de 2018 por el profesor Sebastian Grymberg, junto con las soluciones propuestas por los integrantes del grupo.\\
 	
+	Serán excibidos en primer lugar aquellos ejercicios que no hayan requerido simulaciones, para luego dar paso a los mismos.\\
+	
+	Toda la información, el codigo utilizado y la versión digital del informe se encuentran en:\\
+	
+	\url{https://github.com/julianferres/Aprendizaje-Estadistico}
 
+	\newpage
+	
 	\section{Lista de enunciados}
 	
 	
@@ -96,7 +103,7 @@
 	
 
 	
-	\subsubsection{Ejercicio 3 (STOP) (SIMULACIÓN)}
+	\subsubsection{Ejercicio 3 (SIMULACIÓN)}
 	
 	Sea $ X \sim \mathcal{N}(0,\, 1)$ truncada al intervalo $\left[-1,1\right]$	
 	
@@ -169,7 +176,7 @@
 	En clase se acotaron tanto el segundo como el tercer miembro la desigualdad, y el ejercicio es entender  por qué el primer término está acotado por el tercero, es decir:	
 	$$ E[ \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] \leq E[ |\eta_\epsilon(x) - \eta(x)| ]$$
 	
-	\subsubsection{Ejercicio 8 (STOP)(SIMULACIÓN)}
+	\subsubsection{Ejercicio 8: PARTICIONES (SIMULACIÓN)}
 	
 	Dado el siguiente diagrama:
 	\begin{center}
@@ -202,11 +209,10 @@
 
 	\subsection{Clase 4}
 				
-	\subsubsection{Ejercicio 9: KNN}
+	\subsubsection{Ejercicio 9: KNN (SIMULACIÓN)}
 	
 	
-	Se pide simular dos normales bivariadas, ambas con matriz de covarianza $\left[ \left[ 1 , 0 \right] , \left[ 0,1\right] \right]$	
-	, pero una centrada en $(-1, 0)$, y la otra en $(1, 0)$.\\
+	Se tienen dos normales bivariadas, ambas con matriz de covarianza $\Sigma ={\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}}$, pero una centrada en $\mu_0 = (-1, 0)$, y la otra en $\mu_1 = (1, 0)$.\\
 	
 	Se pide:
 	\begin{enumerate}
@@ -277,7 +283,7 @@
 	\end{itemize}
 	
 	
-	\subsubsection{Ejercicio 14 (STOP)}
+	\subsubsection{Ejercicio 14: PERDIDA (SIMULACIÓN)}
 	
 	Dados los siguientes clasificadores por particiones:
 	
@@ -319,6 +325,7 @@
 	\end{enumerate}
 	
 	\newpage
+	
 	\section{Soluciones}
 	
 	
@@ -375,7 +382,7 @@
 		$$ E\left[Y|X\right] \phi(X) = E \left[Y\phi(X)| X \right]$$
 		
 		
-		\subsubsection{Ejercicio 3 (STOP) (SIMULACIÓN)}
+
 		
 		Mirar anexo		
 		\subsubsection{Ejercicio 4 (no entregable)}
@@ -449,19 +456,11 @@
 		Y el ejercicio se reduce a la demostración del \textit{\textbf{Lema previo}}.
 		
 							
-		\subsubsection{Ejercicio 8 (STOP)(SIMULACIÓN)}
+
 	Mirar anexo
 	
 		\subsection{Clase 4}
-		
-		\subsubsection{Ejercicio 9: KNN}
-		
-		
-	Mirar anexo
-		
-		
-		
-		
+			
 		\subsubsection{Ejercicio 9 bis}
 			
 			\textbf{\underline{Normal Multivariada:}}\\
@@ -571,7 +570,8 @@
 		
 		
 		
-		\subsubsection{Ejercicio 14 (STOP)}
+
+			
 		
 	Mirar anexo
 		
@@ -610,6 +610,269 @@
 		Que coincide con el cardinal del conjunto (hallado de forma exhaustiva):
 		
 		$$ \{\emptyset, \{z_1\},\{z_2\},\{z_3\} ,\{z_1,z_2\} , \{z_2,z_3\} , \{z_1,z_2,z_3\}\}$$		
+\newpage		
+\section{Soluciones de problemas con Simulación}
+
+	Para todos los ejercicios, se utilizaron librerias de Python (numpy, pandas, matplotlib, seaborn, sklearn) en el entorno de Jupyter Lab, cabe aclarar que el código que permitió obtener las ilustraciones y gráficos se encuentra en el repositorio antes mencionado, y habiendo en el mismo un análisis más extenso que el presentado en este informe.
+		
+		\subsection{Ejercicio 3 (SIMULACIÓN)}
+		
+			Se simuló la normal truncada al intervalo $[-1,1]$
+			
+		
+			\begin{center}
+				
+				\includegraphics[width=0.6\linewidth]{NormalTruncada.png}
+				\label{fig:NormalTruncada}
+			\end{center}
+			
+			
+			Con la función $m(x)$ y la distribución de $Y - m(x) \sim \mathcal{N}(0,\, \sigma^2(x))$
+			
+			Con $\sigma(x)=0.2-0.1\cos(2x)$\\
+			
+			\begin{center}
+				
+				\includegraphics[width=0.8\linewidth]{mxDispersion.png}
+				\label{fig:scatterm(x)}
+			\end{center}
+			
+			
+			Los 200 puntos se encuentran en un archivo con la extension .csv ("Comma Separated Values") en el repositorio de la materia.
+
+		
+		\subsection{Ejercicio 8: PARTICIONES (SIMULACIÓN)}
+		
+			Para comenzar, se simularon las distribuciones uniformes sobre las Regiones descriptas en el enunciado, se muestra un ejemplo con 1000 puntos de muestra para entrenar las particiones.
+					
+			\begin{center}
+				\includegraphics[width=0.7\linewidth]{ParticionesSimu1K}\\
+				Simulación de las dos variables aleatrias, con $n=1000$
+				
+				\label{fig:Simu}
+			\end{center}
+			
+			Para generar la particion tengo que saber la longitud del lado de las cajas.
+			
+			Segun lo visto en clase, si $h_n$ es la longitud del lado de las cajas, entonces:
+			$$h_n = \frac {1}{\sqrt[2d]{n}} = n^{-\frac{1}{2d}}$$
+			
+			cumple las condiciones para que la regla del histograma sea universalmente consistente, estas son:
+			
+			\begin{itemize}
+				\item $ \lim\limits_{n \to \infty} h_n = 0$
+				
+				\item $ \lim\limits_{n \to \infty} nh_n^d = \infty$
+			\end{itemize}
+			
+			En este caso, con dos dimensiones, $d=2$:
+			$$h_n = \frac {1}{\sqrt[4]{n}}$$
+			
+			Se exciben los diferentes clasifcadores del intervalo $\left[0,1\right] \times \left[ 0,1 \right]$, asignandole el empate a la clase 0.
+			
+			\begin{center}
+				\includegraphics[width=1.1\linewidth]{graficos/100-1K}\\
+				Particiones con n=100 y n=1000 respectivamente
+			
+			\label{fig:100-1K}
+			
+			\end{center}
+			
+			\begin{center}
+				\includegraphics[width=1.1\linewidth]{10K-100K}
+				\\
+				Particiones con n=10000 y n=100000 respectivamente
+				\label{fig:10K-100K}
+				
+			\end{center}
+			
+		
+			\begin{center}
+				\includegraphics[width=0.8\linewidth]{Particiones1M}\\
+				Particiones con un millón de datos de train.
+				\label{fig:1M}
+				
+			\end{center}
+
+			
+		\newpage
+		\subsection{Ejercicio 9: KNN (SIMULACIÓN)}
+		
+		
+		Se procedió a simular las dos normales requeridas, catalogando como de $Clase\ 0$ a los puntos generados con distribución Normal $\mathcal{N}(\mu_0,\, \Sigma_0)$ con:
+		
+		\begin{itemize}
+			\item $\mu_0 = (0,-1)$
+			
+			\item $\Sigma_0 ={\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}}$
+		\end{itemize}
+		
+		
+		y los puntos de $Clase\ 1$ a los puntos generados con distribución Normal $\mathcal{N}(\mu_1,\, \Sigma_1)$ con:
+		
+		\begin{itemize}
+			\item $\mu_1 = (0,1)$
+			
+			\item $\Sigma_1 ={\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}}$
+		\end{itemize}
+		
+		Se muestra una dispersión de los mismos, habiendo generado 100000 puntos en total (50000 de cada clase):
+			
+		\begin{center}
+				
+			\includegraphics[width=0.8\linewidth]{graficos/KNNSimuNorm.png}
+			\label{fig:Normales1}
+					
+			Dispersión de puntos generados
+		\end{center}
+		
+		
+		
+		\begin{center}
+			
+			\includegraphics[width=1.2\linewidth]{graficos/KNNnormales.png}
+			\label{fig:Normales}			
+			Distribuciónes de ambas Normales con sus marginales\\
+		\end{center}
+	
+		Luego se paso a entrenar (con este set de 100000 puntos de train) al algoritmo de KNN, variando el hiperparametro K, y utilizando siempre la distancia euclideana.\\
+		
+		Se procedió a clasificar el set de 20000 puntos distribuidos de forma uniforme en el intervalo $\left[-4,4\right] \times \left[-4,4\right]$, obteniendo los siguientes resultados sobre los puntos de Testing(uniformes):\\
+		
+		\begin{center}
+		
+		\includegraphics[width=0.8\linewidth]{graficos/KNN01}
+		\label{fig:KNN01}
+		
+		KNN Tomando el vecino más cercano (K=1)\\
+
+		\end{center}
 		
 	
+		\begin{center}
+		
+		\includegraphics[width=0.8\linewidth]{graficos/KNN03}
+		\label{fig:KNN03}
+		
+		KNN (K=3)\\
+		
+	\end{center}
+
+	\begin{center}
+		
+		\includegraphics[width=0.8\linewidth]{graficos/KNN13}
+		\label{fig:KNN13}
+		
+		KNN (K=13)\\
+		
+	\end{center}
+	
+	\subsubsection{Costos de KNN}
+	
+	Veremos como se comporta KNN prediciendo puntos de Test.
+	
+	Para eso generamos nuevos puntos (en dos partes), identicamente distribuidos a la normal 0 en caso de error\_n0 y a la normal 1 en caso de error\_n1.\\
+	
+	Se toma como estimador de la función perdida del clasificador $\Phi  \in \mathcal{C}$ a:
+
+$$ \widehat{L}_n (\Phi)= \frac{1}{n} \sum_{i=1}^{n-test} 1\{ \Phi(X_i) \neq Y_i \}$$
+
+Con $X_i$ el vector aleatorio de features, con $Y_i$ su label correspondiente.
+
+
+\begin{center}
+{\large 	
+\begin{tabular}{llr}
+	&$\widehat{L_n}$&\\
+	\hline
+	Clasificador    & n0\_test & n1\_test \\
+	\hline
+	K=1      & 0.220   & 0.220      \\
+	K=3      & 0.195    & 0.186   \\
+	K=13     & 0.162    & 0.165      \\
+	
+	
+	\hline
+\end{tabular}
+	}
+\end{center}
+
+Se puede concluir que si el set de Test es i.i.d al de train, producirá menor error al aumentar $K$.
+		
+		\subsection{Ejercicio 14: PERDIDA (SIMULACIÓN)}
+		
+		De forma analoga al ejercicio de particiones, se construyeron los seis clasificadores propuestos, se exciben los clasificadores $1,2$ y $6$ (siguiendo el esquema del enunciado):
+		
+		
+		\begin{center}
+			
+			\includegraphics[width=0.9\linewidth]{Clasificadores_simples}
+			\label{fig:KNN13}\\
+			Clasificadores con n=10000.
+			
+		
+		\end{center}
+		
+		
+		Utilizando como estimador de la función perdida para el clasificador $\Phi \in \mathcal{C}$:
+		
+		
+		$$ \widehat{L}_n (\Phi)= \frac{1}{n} \sum_{i=1}^{n-test} 1\{ \Phi(X_i) \neq Y_i \}$$
+		
+		Con $X_i$ el vector aleatorio de features, con $Y_i$ su label correspondiente.
+		
+		Se estimaron los errores tanto del set de Training como el de Testing (de $\left \lfloor \frac{n}{6} \right \rfloor = 1666 $ puntos generados con la misma distribución que los de Train )
+		
+		Obteniendo los siguientes resultados:
+		
+		\begin{center}
+			
+			\large $\widehat{L_n}$ - Train  \\
+			{\large 	
+				\begin{tabular}{llr}
+									\hline
+					Clasificador &   & error\\
+					\hline
+					1  &    & 0.7478   \\
+					2  &    & 0.5028  \\
+					3  &    & 0.6716  \\
+					4  &    & 0.6573    \\
+					5  &    & 0.6716    \\
+					6  &    & 0.7478    \\
+						
+					
+					\hline
+				\end{tabular}
+			}
+			
+			
+		Se podría sospechar que el Clasicador 3 y 5 han clasificado las regiones de la misma manera, se comprueba por simple verificación en el clasificador.
+		
+		\end{center}
+			
+			\begin{center}
+				
+				\large $\widehat{L_n}$ - Test  \\
+				{\large 	
+					\begin{tabular}{llr}
+						\hline
+						Clasificador &   & error\\
+						\hline
+						1  &    & 0.756    \\
+						2  &    & 0.501   \\
+						3  &    & 0.476  \\
+						4  &    & 0.496    \\
+						5  &    & 0.476    \\
+						6  &    & 0.491    \\
+						
+						
+						\hline
+					\end{tabular}
+				}
+			\end{center}
+			
+		Con esto se podría decir que frente a los datos de Training, el que produce menor error estimado es el Clasificador 2 (Quizas porque se puede ajustar mejor por su geometría a las regiones)\\
+		
+			
+		No obstante, con los datos de Testing, los clasificadores $3\ y\ 5$ son los que minimizan el error estimado. 
 \end{document}
