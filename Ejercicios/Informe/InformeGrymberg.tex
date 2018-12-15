@@ -359,7 +359,7 @@
 		
 		\textbf{\underline{Solución:}}
 		
-		Sea $ h(X) = \frac{f(X)}{g(X)}$, es claro que $h(X)$ puede adoptar cualquier valor de $\mathcal{H}$, por ejemplo, si busco adoptar $g(X)$ elijo $f(X)= g(X)\phi(X) \in \mathcal{H}$.\\
+		Sea $ h(X) = \frac{f(X)}{\phi(X)}$, es claro que $h(X)$ puede adoptar cualquier valor de $\mathcal{H}$, por ejemplo, si busco adoptar $a(X)$ elijo $f(X)= a(X)\phi(X) \in \mathcal{H}$.\\
 		
 		Usando la definición de $h(X)$ en la ecuación de hipotesis, se llega a que  $\forall h(X) \in \mathcal{H}$:
 		$$ E\left[m(X)\phi(X)h(X) \right] =  E\left[Y\phi(X)h(X)\right]$$
@@ -384,7 +384,6 @@
 		
 
 		
-		Mirar anexo		
 		\subsubsection{Ejercicio 4 (no entregable)}
 		
 		\subsection{Clase 2}
@@ -424,7 +423,7 @@
 			\textbf{\underline{Solución:}}\\
 		
 			Se pide mostrar que: 
-			$$ E[ \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] \leq E[ |\eta_\epsilon(x) - \eta(x)| ]$$ donde:
+			$$ E[ | \tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| ] \leq E[ |\eta_\epsilon(x) - \eta(x)| ]$$ donde:
 			
 		  \begin{itemize}
 		  	\item $\tilde{f}(x) = E\left[ f(x) | X \in A(x) \right]$ para toda funcion $f$.
@@ -449,15 +448,18 @@
 	
 		$\tilde{\eta}(x) - \tilde{\eta}_\epsilon(x) = E\left[ \eta(x) | X \in A(x) \right] - E\left[ \eta_\epsilon (x) | X \in A(x) \right] = E\left[ \eta(x) - \eta_\epsilon (x) | X \in A(x) \right]$\\
 		
-		$|\tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| = f(E\left[W|Z\right])$ y ademas como $W$ y $Z$ son independientes, tambien lo son $f(W)$ y $Z$, luego: $E\left[f(W)|Z\right] = E\left[f(W)\right] =  E[ |\eta_\epsilon(x) - \eta(x)| ] $
+		
+		Pero entonces usando la notacion de $W$ y $Z$:
+		
+		$|\tilde{\eta}(x) - \tilde{\eta}_\epsilon(x)| = f(E\left[W|Z\right])$\\
+		
+		Y ademas como $W$ y $Z$ son independientes, tambien lo son $f(W)$ y $Z$, luego:\\ 
+		
+		$E\left[f(W)|Z\right] = E\left[f(W)\right] =  E[ |\eta_\epsilon(x) - \eta(x)| ] $    $(2)$
 		
 		
 		
 		Y el ejercicio se reduce a la demostración del \textit{\textbf{Lema previo}}.
-		
-							
-
-	Mirar anexo
 	
 		\subsection{Clase 4}
 			
@@ -507,7 +509,7 @@
 		
 		\textbf{\underline{Solución(CS):}}\\
 		
-		Por CS se ve de forma directa que: $$3(a^2+b^2+c^2) = (1^2+1^2+1^2)(a^2+b^2+c^2) \geq (1^2a^2+1^2b^2+1^2c^2)^2= (a+b+c)^2$$
+		Por CS se ve de forma directa que: $$3(a^2+b^2+c^2) = (1^2+1^2+1^2)(a^2+b^2+c^2) \geq (1 \cdot a+1 \cdot b+1\cdot c)^2= (a+b+c)^2$$
 		
 	
 		
@@ -569,12 +571,7 @@
 		$\Phi'(u)=\frac{(p e^u)}{(p e^u - p + 1)} - p$, $\Phi'(0)=\frac{(p e^0)}{(p e^0 - p + 1)} - p = p-p = 0$
 		
 		
-		
 
-			
-		
-	Mirar anexo
-		
 		\subsection{Clase 6}
 		
 		\subsubsection{Ejercicio 15}
